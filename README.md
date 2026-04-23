@@ -18,7 +18,7 @@ It supports:
 ## Setup
 
 1. Create a Firebase project with **Firestore** and **Storage** enabled.
-2. Update `/home/runner/work/PaintPalette/PaintPalette/src/firebase-config.js` with your Firebase web config values.
+2. Update `src/firebase-config.js` with your Firebase web config values.
 3. Configure Firestore and Storage rules for your access model.
 4. Start the app:
 

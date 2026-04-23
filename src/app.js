@@ -42,7 +42,7 @@ function renderPaints() {
 
   for (const paint of sortByCreatedAtDesc(paints)) {
     const item = document.createElement('li');
-    const headline = [paint.brand, paint.name].filter(Boolean).join(' - ') || paint.name;
+    const headline = [paint.brand, paint.name].filter(Boolean).join(' - ');
     item.textContent = `${headline}${paint.colorFamily ? ` (${paint.colorFamily})` : ''}`;
     paintList.append(item);
 
