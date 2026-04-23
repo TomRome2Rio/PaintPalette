@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PaintPalette</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PaintPalette</h1>
+      <p>Track your miniature painting projects, paint inventory, and recipes.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Add Paint</h2>
+        <form id="paint-form">
+          <label>Name <input name="name" required maxlength="80" /></label>
+          <label>Brand <input name="brand" maxlength="80" /></label>
+          <label>Color family <input name="colorFamily" maxlength="80" /></label>
+          <label>Notes <textarea name="notes" maxlength="500"></textarea></label>
+          <button type="submit">Save paint</button>
+        </form>
+        <ul id="paint-list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Add Miniature</h2>
+        <form id="miniature-form">
+          <label>Name <input name="name" required maxlength="120" /></label>
+          <label>Faction/Game <input name="faction" maxlength="120" /></label>
+          <label>Scale <input name="scale" maxlength="40" /></label>
+          <label>Notes <textarea name="notes" maxlength="500"></textarea></label>
+          <label>Photo <input type="file" name="photo" accept="image/*" /></label>
+          <button type="submit">Save miniature</button>
+        </form>
+        <ul id="miniature-list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Add Recipe</h2>
+        <form id="recipe-form">
+          <label>
+            Miniature
+            <select id="recipe-miniature" name="miniatureId" required></select>
+          </label>
+          <label>Recipe title <input name="title" required maxlength="120" /></label>
+          <label>
+            Paints used
+            <select id="recipe-paints" name="paintIds" multiple size="6"></select>
+          </label>
+          <label>Author <input name="author" maxlength="120" /></label>
+          <label>Steps <textarea name="steps" required maxlength="4000"></textarea></label>
+          <button type="submit">Save recipe</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Recipes for a Miniature</h2>
+        <label>
+          Choose miniature
+          <select id="recipe-filter-miniature"></select>
+        </label>
+        <ul id="recipe-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Configure your Firebase project in <code>src/firebase-config.js</code>.</p>
+    </footer>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>
