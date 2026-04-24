@@ -30,3 +30,8 @@ Tabletop gamers and hobbyists who paint miniatures (e.g. Warhammer, D&D, histori
 ## Current state
 
 Scaffolded with basic CRUD for paints, miniatures, and recipes against Firestore. No auth, no community/social features yet.
+
+## Security rules
+
+- **NEVER commit secrets, API keys, tokens, or credentials to the repo** — not in source files, config files, URLs, comments, or any other form. This includes Firebase config values. Use placeholder values (e.g. `REPLACE_ME`) in committed files and document how to supply real values locally.
+- Keep `src/firebase-config.js` with placeholder values only; real config should be set up per-developer.
