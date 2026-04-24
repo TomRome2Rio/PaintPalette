@@ -9,60 +9,105 @@
   <body>
     <header>
       <h1>PaintPalette</h1>
-      <p>Track your miniature painting projects, paint inventory, and recipes.</p>
+      <nav id="main-nav">
+        <a href="#gallery" class="nav-link active" data-view="gallery">Gallery</a>
+        <a href="#paints" class="nav-link" data-view="paints">Paints</a>
+        <a href="#recipes" class="nav-link" data-view="recipes">Recipes</a>
+      </nav>
     </header>
 
     <main>
-      <section class="card">
-        <h2>Add Paint</h2>
-        <form id="paint-form">
-          <label>Name <input name="name" required maxlength="80" /></label>
-          <label>Brand <input name="brand" maxlength="80" /></label>
-          <label>Color family <input name="colorFamily" maxlength="80" /></label>
-          <label>Notes <textarea name="notes" maxlength="500"></textarea></label>
-          <button type="submit">Save paint</button>
-        </form>
-        <ul id="paint-list"></ul>
+      <!-- ===== Gallery View ===== -->
+      <section id="view-gallery" class="view active">
+        <div class="gallery-header">
+          <h2 id="gallery-title">My Gallery</h2>
+          <div class="gallery-user-bar">
+            <label>Viewing as: <strong id="current-user-name">Anonymous Painter</strong></label>
+          </div>
+        </div>
+
+        <div class="card upload-card">
+          <h3>Upload a Miniature</h3>
+          <form id="miniature-form">
+            <div class="form-row">
+              <label>Name <input name="name" required maxlength="120" /></label>
+              <label>Faction/Game <input name="faction" maxlength="120" /></label>
+              <label>Scale <input name="scale" maxlength="40" /></label>
+            </div>
+            <label>Notes <textarea name="notes" maxlength="500"></textarea></label>
+            <label>Photo <input type="file" name="photo" accept="image/*" /></label>
+            <button type="submit">Upload</button>
+          </form>
+        </div>
+
+        <div id="gallery-grid" class="gallery-grid"></div>
+        <p id="gallery-empty" class="empty-state" hidden>
+          No miniatures yet — upload your first painted mini above!
+        </p>
       </section>
 
-      <section class="card">
-        <h2>Add Miniature</h2>
-        <form id="miniature-form">
-          <label>Name <input name="name" required maxlength="120" /></label>
-          <label>Faction/Game <input name="faction" maxlength="120" /></label>
-          <label>Scale <input name="scale" maxlength="40" /></label>
-          <label>Notes <textarea name="notes" maxlength="500"></textarea></label>
-          <label>Photo <input type="file" name="photo" accept="image/*" /></label>
-          <button type="submit">Save miniature</button>
-        </form>
-        <ul id="miniature-list"></ul>
+      <!-- ===== Paints View ===== -->
+      <section id="view-paints" class="view">
+        <div class="card">
+          <h2>Add Paint</h2>
+          <form id="paint-form">
+            <label>Name <input name="name" required maxlength="80" /></label>
+            <label>Brand <input name="brand" maxlength="80" /></label>
+            <label>Color family <input name="colorFamily" maxlength="80" /></label>
+            <label>Notes <textarea name="notes" maxlength="500"></textarea></label>
+            <button type="submit">Save paint</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="paint-toolbar">
+            <h2>Paint Collection</h2>
+            <button id="seed-paints-btn" type="button">Load sample paints</button>
+          </div>
+          <div class="paint-filters">
+            <label>Brand
+              <select id="paint-filter-brand">
+                <option value="">All brands</option>
+              </select>
+            </label>
+            <label>Colour family
+              <select id="paint-filter-color">
+                <option value="">All colours</option>
+              </select>
+            </label>
+          </div>
+          <ul id="paint-list"></ul>
+        </div>
       </section>
 
-      <section class="card">
-        <h2>Add Recipe</h2>
-        <form id="recipe-form">
+      <!-- ===== Recipes View ===== -->
+      <section id="view-recipes" class="view">
+        <div class="card">
+          <h2>Add Recipe</h2>
+          <form id="recipe-form">
+            <label>
+              Miniature
+              <select id="recipe-miniature" name="miniatureId" required></select>
+            </label>
+            <label>Recipe title <input name="title" required maxlength="120" /></label>
+            <label>
+              Paints used
+              <select id="recipe-paints" name="paintIds" multiple size="6"></select>
+            </label>
+            <label>Author <input name="author" maxlength="120" /></label>
+            <label>Steps <textarea name="steps" required maxlength="4000"></textarea></label>
+            <button type="submit">Save recipe</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Recipes for a Miniature</h2>
           <label>
-            Miniature
-            <select id="recipe-miniature" name="miniatureId" required></select>
+            Choose miniature
+            <select id="recipe-filter-miniature"></select>
           </label>
-          <label>Recipe title <input name="title" required maxlength="120" /></label>
-          <label>
-            Paints used
-            <select id="recipe-paints" name="paintIds" multiple size="6"></select>
-          </label>
-          <label>Author <input name="author" maxlength="120" /></label>
-          <label>Steps <textarea name="steps" required maxlength="4000"></textarea></label>
-          <button type="submit">Save recipe</button>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Recipes for a Miniature</h2>
-        <label>
-          Choose miniature
-          <select id="recipe-filter-miniature"></select>
-        </label>
-        <ul id="recipe-list"></ul>
+          <ul id="recipe-list"></ul>
+        </div>
       </section>
     </main>
 
