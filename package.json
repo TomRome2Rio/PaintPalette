@@ -1,0 +1,26 @@
+{
+  "name": "paintpalette",
+  "version": "1.0.0",
+  "description": "Firestore-backed miniature painting tracker",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomRome2Rio/PaintPalette.git"
+  },
+  "keywords": [
+    "firebase",
+    "firestore",
+    "miniatures",
+    "painting"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/TomRome2Rio/PaintPalette/issues"
+  },
+  "homepage": "https://github.com/TomRome2Rio/PaintPalette#readme"
+}
